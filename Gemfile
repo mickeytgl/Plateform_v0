@@ -66,4 +66,5 @@ gem 'foreman', '~> 0.84.0'
 #OmniAuth Logins 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'twitter'
 gem 'omniauth-github'
