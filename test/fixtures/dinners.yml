@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  place: MyString
+  time: 2017-10-12 13:43:51
+  description: MyText
+  cost: 1
+
+two:
+  place: MyString
+  time: 2017-10-12 13:43:51
+  description: MyText
+  cost: 1
