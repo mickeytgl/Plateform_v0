@@ -23,6 +23,7 @@ class DinnersController < ApplicationController
 	#POST /dinners
 	def create
 		@dinner = Dinner.new(dinner_params)
+		@dinner.user_id = 1
 
 		if @dinner.save 
 			redirect_to @dinner, notice: 'Yay! Your dinner was successfully created'
@@ -49,7 +50,7 @@ class DinnersController < ApplicationController
 	private 
 
 		def set_dinner
-			@dinner = Dinne.find(params[:id])
+			@dinner = Dinner.find(params[:id])
 		end
 
 		def dinner_params 

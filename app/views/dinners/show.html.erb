@@ -1,0 +1,22 @@
+<p>
+  <strong>Place:</strong>
+  <%= @dinner.place %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @dinner.time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dinner.description %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @dinner.cost %>
+</p>
+
+<%= link_to 'Edit', edit_dinner_path(@dinner) %> |
+<%= link_to 'Back', dinners_path %>
