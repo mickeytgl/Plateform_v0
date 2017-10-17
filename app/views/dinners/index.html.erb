@@ -1,0 +1,22 @@
+<h3>Check out all the options near you!</h3>
+
+<% @dinners.each do |dinner| %> 
+	<div class="row">
+		<div class="col-md-2">
+			<h5>Chef id: <%= dinner.user.id %></h5>
+		</div>
+		<div class="col-md-2">
+			<p><%= dinner.place %></p>
+			<p><%= dinner.time %></p>
+			<p><%= dinner.description %></p>
+			<p><%= dinner.cost %> Euros</p>
+		</div>
+		<% if current_user == dinner.user.id %>
+		<div class="col-md-2">
+			<% link_to edit_dinner_path(dinner), "Edit" %>
+		</div>
+		<% end %>
+	</div>
+
+
+<% end %>

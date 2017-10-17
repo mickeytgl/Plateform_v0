@@ -15,6 +15,7 @@
           <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)" data-uv-lightbox="classic_widget" data-uv-mode="full" data-uv-primary-color="#3aa2e3" data-uv-link-color="#56b68b" data-uv-default-mode="support" data-uv-forum-id="259979">Support</a>
           </li>
+          <li class="nav-item"><%= link_to "Create a new meal", new_dinner_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Account", edit_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
         <% else %>

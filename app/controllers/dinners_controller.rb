@@ -1,5 +1,7 @@
 class DinnersController < ApplicationController
 	before_action :set_dinner, only: [:show, :edit, :update, :destroy]
+	before_action :require_user, except: [:show, :index]
+	before_action :require_same_user, only: [:edit, :update]
 
 	#GET /dinners 
 	def index 
@@ -51,6 +53,13 @@ class DinnersController < ApplicationController
 
 		def set_dinner
 			@dinner = Dinner.find(params[:id])
+		end
+
+		def require_same_user 
+			if current_user != @dinner.user and !current_user.admin?
+				flash[:danger] = "You can only modify your own dinners"
+				redirect_to root_path
+			end
 		end
 
 		def dinner_params 
