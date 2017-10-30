@@ -68,3 +68,6 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'twitter'
 gem 'omniauth-github'
+
+#Geocoder Stuff
+gem 'geocoder'
