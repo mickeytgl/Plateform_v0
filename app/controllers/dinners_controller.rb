@@ -5,7 +5,7 @@ class DinnersController < ApplicationController
 
 	#GET /dinners 
 	def index 
-		@dinners = Dinner.all 
+		@dinners = Dinner.page(params[:page]).per(5)
 	end 
 
 	#GET /dinners/1

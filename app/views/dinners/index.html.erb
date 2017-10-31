@@ -1,12 +1,13 @@
 <h3>Check out all the options near you!</h3>
 
+<div class="col">
 <% @dinners.each do |dinner| %> 
 	<div class="row">
 		<div class="col-md-2">
 			<h5>Chef id: <%= dinner.user.id %></h5>
 		</div>
 		<div class="col-md-2">
-			<p><%= dinner.place %></p>
+			<p><%= dinner.address %></p>
 			<p><%= dinner.time %></p>
 			<p><%= dinner.description %></p>
 			<p><%= dinner.cost %> Euros</p>
@@ -18,7 +19,11 @@
 		</div>
 		<% end %>
 	</div>
-
-
 <% end %>
 
+<%= paginate @dinners %>
+</div>
+
+<div class="col">
+	<%= tag.div nil, id: 'map', data: { addresses: @dinners.to_json } %>
+</div>

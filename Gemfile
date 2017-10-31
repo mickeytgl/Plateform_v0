@@ -62,7 +62,7 @@ gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
 gem 'webpacker', '~> 1.1'
 gem 'sidekiq', '~> 5.0'
 gem 'foreman', '~> 0.84.0'
-
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
 #OmniAuth Logins 
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
