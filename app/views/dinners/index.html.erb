@@ -25,5 +25,6 @@
 </div>
 
 <div class="col">
-	<%= tag.div nil, id: 'map', data: { addresses: @dinners.to_json } %>
+	<%= tag.div nil, id: 'map', data: { addresses: @dinners.to_json, l: params[:l] } %>
+	<%= link_to "Redo search in this area", "#", id: "redo-search" %>
 </div>

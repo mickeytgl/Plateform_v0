@@ -5,9 +5,15 @@ class DinnersController < ApplicationController
 
 	#GET /dinners 
 	def index 
-	  @dinners = if params[:near]
+	  @dinners = if params[:l]
+	  	           sw_lat, sw_lng, ne_lat, ne_lng = params[:l].split(",")
+	  	           center   = Geocoder::Calculations.geographic_center([[sw_lat, sw_lng], [ne_lat, ne_lng]])
+	  	           distance = Geocoder::Calculations.distance_between(center, [sw_lat, sw_lng])
+	  	           box      = Geocoder::Calculations.bounding_box(center, distance)
+	  	           Dinner.within_bounding_box(box)
+	  	         elsif params[:near]
 	  	           Dinner.near(params[:near])
-	  	         else
+	  	         else 
 	  	           Dinner.all
 	  	         end
 
