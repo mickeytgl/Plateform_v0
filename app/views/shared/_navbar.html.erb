@@ -6,6 +6,11 @@
     <%= link_to "Plateform", root_path, class: "navbar-brand" %>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= form_with(url: dinners_path, class: "form-inline my-2 my-lg-0 mr-auto", local: true, method: :get) do |f| %>
+      <%= f.text_field :near, class: "form-control mr-sm-2", placeholder: "Search" %>
+      <%= f.submit "Search", class: "btn btn-outline-secondary my-2 my-sm-0" %>
+      <% end %>
+
       <ul class="navbar-nav mr-auto mt-2 mt-md-0">
       </ul>
 

@@ -5,7 +5,13 @@ class DinnersController < ApplicationController
 
 	#GET /dinners 
 	def index 
-		@dinners = Dinner.page(params[:page]).per(5)
+	  @dinners = if params[:near]
+	  	           Dinner.near(params[:near])
+	  	         else
+	  	           Dinner.all
+	  	         end
+
+	  @dinners = Dinner.page(params[:page]).per(5)
 	end 
 
 	#GET /dinners/1
@@ -25,7 +31,7 @@ class DinnersController < ApplicationController
 	#POST /dinners
 	def create
 		@dinner = Dinner.new(dinner_params)
-		@dinner.user_id = 1
+		@dinner.user_id = current_user.id
 
 		if @dinner.save 
 			redirect_to @dinner, notice: 'Yay! Your dinner was successfully created'
@@ -63,6 +69,6 @@ class DinnersController < ApplicationController
 		end
 
 		def dinner_params 
-			params.require(:dinner).permit(:place, :time, :description, :cost)
+			params.require(:dinner).permit(:place, :time, :description, :cost, :address)
 		end
 end
