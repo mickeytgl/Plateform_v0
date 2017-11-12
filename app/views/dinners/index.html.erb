@@ -1,12 +1,13 @@
 <h3>Check out all the options near you!</h3>
 
-<div class="col">
+<div class="row">
+<div class="col col-lg-6">
 <% @dinners.each do |dinner| %> 
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-4">
 			<h5>Chef id: <%= dinner.user.id %></h5>
 		</div>
-		<div class="col-md-2">
+		<div class="col-md-6">
 			<p><%= dinner.address %></p>
 			<p><%= dinner.time %></p>
 			<p><%= dinner.description %></p>
@@ -24,7 +25,8 @@
 <%= paginate @dinners %>
 </div>
 
-<div class="col">
+<div class="col col-md-6">
 	<%= tag.div nil, id: 'map', data: { addresses: @dinners.to_json, l: params[:l] } %>
 	<%= link_to "Redo search in this area", "#", id: "redo-search" %>
+</div>
 </div>
