@@ -1,3 +1,4 @@
+
 <p>
   <strong>Address:</strong>
   <%= @dinner.address %>
@@ -20,3 +21,6 @@
 
 <%= link_to 'Edit', edit_dinner_path(@dinner) %> |
 <%= link_to 'Back', dinners_path %>
+
+
+<% image_tag(@dinner.avatars.url) if @dinner.avatars? %>

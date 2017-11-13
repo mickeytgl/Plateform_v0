@@ -34,6 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :last_name
       t.datetime :announcements_last_read_at
       t.boolean :admin, default: false
+      t.string :avatar
 
       t.timestamps null: false
     end

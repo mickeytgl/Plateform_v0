@@ -71,3 +71,5 @@ gem 'omniauth-github'
 
 #Geocoder Stuff
 gem 'geocoder'
+
+gem 'carrierwave', '~> 1.2', '>= 1.2.1'

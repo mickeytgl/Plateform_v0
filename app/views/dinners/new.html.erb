@@ -1,22 +1,22 @@
 <h2>Create a New Dinner!</h2>
 
 <%= form_with(model: @dinner, local: true) do |form| %>
-	<div class="field">
+	<div class="form-group">
 		<%= form.label :address %>
 		<%= form.text_field :address %>
 	</div>
 
-	<div class="field">
+	<div class="form-group">
 		<%= form.label :time %>
 		<%= form.datetime_select :time %>
 	</div>
 
-	<div class="field">
+	<div class="form-group">
 		<%= form.label :description %>
 		<%= form.text_area :description %>
 	</div>
 
-	<div class="field">
+	<div class="form-group">
 		<%= form.label :cost %>
 		<%= form.number_field :cost %>
 	</div>

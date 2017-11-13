@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20171012114351) do
     t.datetime "time"
     t.text "description"
     t.integer "cost"
+    t.json "avatars"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -66,6 +67,7 @@ ActiveRecord::Schema.define(version: 20171012114351) do
     t.string "last_name"
     t.datetime "announcements_last_read_at"
     t.boolean "admin", default: false
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
