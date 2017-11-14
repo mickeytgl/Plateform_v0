@@ -7,7 +7,7 @@ class CreateDinners < ActiveRecord::Migration[5.1]
       t.datetime :time
       t.text :description
       t.integer :cost
-      t.json :avatars
+      t.json :images
 	  t.references :user, foreign_key: true
 
 

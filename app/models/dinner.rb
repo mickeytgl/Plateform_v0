@@ -1,5 +1,5 @@
 class Dinner < ApplicationRecord
-	mount_uploader :avatars, AvatarUploader
+	mount_uploaders :images, ImagesUploader
 	belongs_to :user
 	geocoded_by :address
 	validates :address, presence: true

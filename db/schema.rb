@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20171012114351) do
     t.datetime "time"
     t.text "description"
     t.integer "cost"
-    t.json "avatars"
+    t.json "images"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

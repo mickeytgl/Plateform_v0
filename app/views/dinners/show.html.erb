@@ -23,4 +23,4 @@
 <%= link_to 'Back', dinners_path %>
 
 
-<% image_tag(@dinner.avatars.url) if @dinner.avatars? %>
+<%= image_tag(@dinner.images[0].url) if @dinner.images? %>
