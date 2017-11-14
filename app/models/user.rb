@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   #attr_accessible :email, :password, :remember_me, :avatar, :avatar_cache, :remove_avatar
   has_many :services, dependent: :destroy
-  has_many :dinners
+  has_many :dinners, dependent: :destroy
 
 
 end
