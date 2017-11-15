@@ -1,9 +1,12 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :dinners
+  resources :dinners do 
+    resources :reviews, module: :dinners 
+  end
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'
+
   namespace :admin do
     resources :users
     resources :announcements

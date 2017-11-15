@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reviewable_type: MyString
+  reviewable_id: 1
+  user_id: 1
+  body: MyText
+
+two:
+  reviewable_type: MyString
+  reviewable_id: 1
+  user_id: 1
+  body: MyText

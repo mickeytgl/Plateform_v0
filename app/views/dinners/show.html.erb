@@ -19,6 +19,9 @@
   <%= @dinner.cost %>
 </p>
 
+<%= render partial: "reviews/reviews", locals: {reviewable: @dinner} %>
+<%= render partial: "reviews/form", locals: {reviewable: @dinner} %>
+
 <%= link_to 'Edit', edit_dinner_path(@dinner) %> |
 <%= link_to 'Back', dinners_path %>
 
