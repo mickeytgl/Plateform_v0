@@ -25,6 +25,7 @@
 
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <% if user_signed_in? %>
+          <li class="nav-item"><%= link_to "Your Profile", "/users/profile/#{current_user.id}", class: "nav-link" %> </li>
           <li class="nav-item disabled"><%= link_to "Create a new meal", new_dinner_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Account", edit_user_registration_path, class: "nav-link" %></li>
           <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
