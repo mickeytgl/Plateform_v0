@@ -16,7 +16,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "https://cdn.dribbble.com/users/265267/screenshots/2992127/pizza.png"
+    "http://via.placeholder.com/40x40"
   end
 
   # Process files as they are uploaded:

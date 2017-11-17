@@ -75,6 +75,6 @@ class DinnersController < ApplicationController
 		end
 
 		def dinner_params 
-			params.require(:dinner).permit(:place, :time, :description, :cost, :address, {images: []})
+			params.require(:dinner).permit(:place, :time, :description, :cost, :address, {images: []}, :category_id)
 		end
 end
