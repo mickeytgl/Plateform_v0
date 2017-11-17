@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
     root to: "users#index"
   end
-
+  resources :users
   resources :announcements, only: [:index]
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'

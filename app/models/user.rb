@@ -10,9 +10,12 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :dinners, dependent: :destroy
   has_many :reviews, as: :reviewable
+  
 
-  def set_default_avatar!
-    self.remote_avatar_url = "https://cdn.dribbble.com/users/265267/screenshots/2992127/pizza.png"
-  	self.save
-  end
+  private 
+    def set_default_avatar!
+      self.remote_avatar_url = "https://cdn.dribbble.com/users/265267/screenshots/2992127/pizza.png"
+    	self.save
+    end
+
 end
