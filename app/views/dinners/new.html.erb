@@ -1,6 +1,18 @@
 <h2>Create a New Dinner!</h2>
 
 <%= form_with(model: @dinner, local: true) do |form| %>
+<% if @dinner.errors.any? %>
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@dinner.errors.count, "error") %>.
+    </div>
+    <ul>
+    <% @dinner.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 	<div class="form-group">
 		<%= form.label :address %>
 		<%= form.text_field :address %>

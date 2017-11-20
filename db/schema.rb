@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116140824) do
+ActiveRecord::Schema.define(version: 20171120140523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,11 +46,23 @@ ActiveRecord::Schema.define(version: 20171116140824) do
     t.datetime "time"
     t.text "description"
     t.integer "cost"
+    t.integer "total_guests"
+    t.integer "places_left"
     t.json "images"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_dinners_on_user_id"
+  end
+
+  create_table "guests", force: :cascade do |t|
+    t.boolean "is_guest"
+    t.bigint "user_id"
+    t.bigint "dinner_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dinner_id"], name: "index_guests_on_dinner_id"
+    t.index ["user_id"], name: "index_guests_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -101,5 +113,7 @@ ActiveRecord::Schema.define(version: 20171116140824) do
   add_foreign_key "dinner_categories", "categories"
   add_foreign_key "dinner_categories", "dinners"
   add_foreign_key "dinners", "users"
+  add_foreign_key "guests", "dinners"
+  add_foreign_key "guests", "users"
   add_foreign_key "services", "users"
 end

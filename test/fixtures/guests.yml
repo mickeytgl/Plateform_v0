@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_guest: false
+  user: one
+  dinner: one
+
+two:
+  is_guest: false
+  user: two
+  dinner: two
