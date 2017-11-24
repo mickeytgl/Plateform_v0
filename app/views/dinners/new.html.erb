@@ -1,52 +1,43 @@
-<h2>Create a New Dinner!</h2>
+<h2 class="text-center">Create a New Dinner!</h2>
 
-<%= form_with(model: @dinner, local: true) do |form| %>
-<% if @dinner.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-      The form contains <%= pluralize(@dinner.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @dinner.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
+<div class="container">
+<%= form_with(model: @dinner, local: true) do |f| %>
 	<div class="form-group">
-		<%= form.label :address %>
-		<%= form.text_field :address %>
+		<%= f.label :address %>
+		<%= f.text_field :address, class: "form-control" %>
 	</div>
 
 	<div class="form-group">
-		<%= form.label :time %>
-		<%= form.datetime_select :time %>
+		<%= f.label :time %>
+		<%= f.datetime_select :time, class: "form-control" %>
 	</div>
 
 	<div class="form-group">
-		<%= form.label :description %>
-		<%= form.text_area :description %>
+		<%= f.label :description %>
+		<%= f.text_area :description, class: "form-control" %>
 	</div>
 
 	<div class="form-group">
-		<%= form.label :cost %>
-		<%= form.number_field :cost %>
+		<%= f.label :cost %>
+		<%= f.number_field :cost, class: "form-control" %>
 	</div>
 
 	<div class="form-group">
-		<%= form.label :images %>
-		<%= form.file_field :images, multiple: true %>
+		<%= f.label :images %>
+		<%= f.file_field :images, multiple: true, class: "form-control-file" %>
 	</div>
 
 	<div class="form-group">
-		<%= form.label :category_ids %>
-		<%= form.select :category_ids, Category.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
+		<%= f.label :category_ids %>
+		<%= f.select :category_ids, Category.all.pluck(:name, :id), {}, { multiple: true, class: "selectize" } %>
 	</div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
+
+</div>
 
 
 
