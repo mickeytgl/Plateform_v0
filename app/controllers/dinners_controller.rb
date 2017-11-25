@@ -60,6 +60,17 @@ class DinnersController < ApplicationController
 		@dinner.destroy 
 		redirect_to dinners_url, notice: "Dinner was successfully destroyed"
 	end 
+    
+    def guest
+    	guest = Guest.create(is_guest: true, dinner: @dinner, user: current_user)
+    	if guest.valid?
+    		flash[:success] = "You are now a guest of this dinner"
+    		#redirect_to root_path
+    	else
+    		flash[:danger] = "You already did this!"
+    		#redirect_to root_path
+    	end
+    end
 
 	private 
 

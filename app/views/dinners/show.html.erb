@@ -19,6 +19,12 @@
   <%= @dinner.cost %>
 </p>
 
+<div class="pull-right">
+	<%= link_to  guest_dinner_path(@dinner), method: :post do %>
+    Join the party!
+	<% end %>
+</div>
+
 <%= render partial: "reviews/reviews", locals: {reviewable: @dinner} %>
 <%= render partial: "reviews/form", locals: {reviewable: @dinner} %>
 

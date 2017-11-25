@@ -2,6 +2,9 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   resources :dinners do 
+    member do 
+      post 'guest'
+    end
     resources :reviews, module: :dinners 
   end
 
