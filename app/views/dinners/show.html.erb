@@ -1,21 +1,33 @@
+<div class="row">
+	<%= link_to recipe_path(@recipe.user) do %>
+	<div class="col-md-4 pull-right center">
+		<%= image_tag(current_user.avatar.url(:medium), :class => " center rounded-circle")%>
+		<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
+	</div>
+	<% end %>
+
+
+
+<div class="col-md-8">
+	
 
 <p>
-  <strong>Address:</strong>
+  <h5>Address:</h5>
   <%= @dinner.address %>
 </p>
 
 <p>
-  <strong>Time:</strong>
+  <h5>Time:</h5>
   <%= @dinner.time %>
 </p>
 
 <p>
-  <strong>Description:</strong>
+  <h5>Description:</h5>
   <%= @dinner.description %>
 </p>
 
 <p>
-  <strong>Cost:</strong>
+  <h5>Cost:</h5>
   <%= @dinner.cost %>
 </p>
 
@@ -25,6 +37,9 @@
 	<% end %>
 </div>
 
+</div>
+
+</div>
 <%= render partial: "reviews/reviews", locals: {reviewable: @dinner} %>
 <%= render partial: "reviews/form", locals: {reviewable: @dinner} %>
 
