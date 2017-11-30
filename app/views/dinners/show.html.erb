@@ -1,50 +1,52 @@
-<div class="row">
-	<%= link_to recipe_path(@recipe.user) do %>
-	<div class="col-md-4 pull-right center">
-		<%= image_tag(current_user.avatar.url(:medium), :class => " center rounded-circle")%>
-		<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+		<%= link_to dinner_path(@dinner.user) do %>
+			<%= image_tag @dinner.user.avatar.url(:medium), class: "float rounded-circle"%>
+			<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
+		</div>
+		<% end %>
+
+
+
+	<div class="col-md-8">
+		
+
+	<p>
+	  <h5>Address:</h5>
+	  <%= @dinner.address %>
+	</p>
+
+	<p>
+	  <h5>Time:</h5>
+	  <%= @dinner.time %>
+	</p>
+
+	<p>
+	  <h5>Description:</h5>
+	  <%= @dinner.description %>
+	</p>
+
+	<p>
+	  <h5>Cost:</h5>
+	  <%= @dinner.cost %>
+	</p>
+
+	<div class="pull-right">
+		<%= link_to  guest_dinner_path(@dinner), method: :post do %>
+	    Join the party!
+		<% end %>
 	</div>
-	<% end %>
+
+	</div>
+
+	</div>
+	<%= render partial: "reviews/reviews", locals: {reviewable: @dinner} %>
+	<%= render partial: "reviews/form", locals: {reviewable: @dinner} %>
+
+	<%= link_to 'Edit', edit_dinner_path(@dinner) %> |
+	<%= link_to 'Back', dinners_path %>
 
 
-
-<div class="col-md-8">
-	
-
-<p>
-  <h5>Address:</h5>
-  <%= @dinner.address %>
-</p>
-
-<p>
-  <h5>Time:</h5>
-  <%= @dinner.time %>
-</p>
-
-<p>
-  <h5>Description:</h5>
-  <%= @dinner.description %>
-</p>
-
-<p>
-  <h5>Cost:</h5>
-  <%= @dinner.cost %>
-</p>
-
-<div class="pull-right">
-	<%= link_to  guest_dinner_path(@dinner), method: :post do %>
-    Join the party!
-	<% end %>
+	<%= image_tag(@dinner.images[0].url(:showcase)) if @dinner.images? %>
 </div>
-
-</div>
-
-</div>
-<%= render partial: "reviews/reviews", locals: {reviewable: @dinner} %>
-<%= render partial: "reviews/form", locals: {reviewable: @dinner} %>
-
-<%= link_to 'Edit', edit_dinner_path(@dinner) %> |
-<%= link_to 'Back', dinners_path %>
-
-
-<%= image_tag(@dinner.images[0].url) if @dinner.images? %>
