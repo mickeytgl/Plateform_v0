@@ -21,6 +21,7 @@ The intention is that people (this was originally concieved for uni-students, bu
  * Users will be able to send messages to other users (Coming soon)
 
 **Some of the skills and tools this app has helped me practice**
+* Test Driven Development using RSpec
 * Dealing with Google Maps API (granted, I cheated a bit and used gmaps.js)
 * Using Omniauth to deal with Facebook's, Twitter's and Google's API for authentication
 * Polymorphic associations for reviews (users and dinners)
