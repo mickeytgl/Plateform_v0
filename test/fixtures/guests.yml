@@ -6,6 +6,6 @@ one:
   dinner: one
 
 two:
-  is_guest: false
+  is_guest: true
   user: two
   dinner: two

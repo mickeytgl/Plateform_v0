@@ -6,8 +6,11 @@
 #
 one:
   email: migueltg93@gmail.com
-  first_name: Miguel 
-  last_name: Torres 
+  name: Miguel Torres 
   id: 1
 
 
+two: 
+  email: bobby@example.com
+  name: Bobby bob 
+  id: 2

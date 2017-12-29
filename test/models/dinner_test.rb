@@ -12,4 +12,6 @@ class DinnerTest < ActiveSupport::TestCase
   	assert_equal true, dinners(:one).time < Time.zone.now
   	assert_equal false, dinners(:one).valid?
   end
+
+
 end
