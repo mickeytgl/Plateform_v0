@@ -63,3 +63,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'carrierwave', '~> 1.2', '>= 1.2.1'
 gem 'selectize-rails'
 
+
+group :test do
+  gem 'shoulda-matchers', '~> 3.1'
+end

@@ -16,4 +16,4 @@ class Dinner < ApplicationRecord
   	errors.add(:time, "You have to set a time in the future!") if 
       !time.blank? and time < Time.zone.now
   end
-end
+end 

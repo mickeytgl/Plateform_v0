@@ -63,6 +63,7 @@ class DinnersController < ApplicationController
     
     def guest
     	guest = Guest.create(is_guest: true, dinner: @dinner, user: current_user)
+    	dinner.guest =- 1
     	if guest.valid?
     		flash[:success] = "You are now a guest of this dinner"
     		#redirect_to root_path
@@ -85,7 +86,7 @@ class DinnersController < ApplicationController
 			end
 		end
 
-		def dinner_params 
+		def dinner_params  
 			params.require(:dinner).permit(:place, :time, :description, :cost, :address, {images: []}, :category_id)
 		end
 end
