@@ -6,7 +6,7 @@ class Dinner < ApplicationRecord
 	has_many :categories, through: :dinner_categories
 
 	geocoded_by :address
-	validates :address,:time, :description, :cost, presence: true
+	validates :address,:time, :description, :cost, :currency, presence: true
 	validate :time_cannot_be_in_the_past
 
 	after_validation :geocode 

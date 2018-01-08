@@ -38,6 +38,7 @@ class DinnersController < ApplicationController
 	def create
 		@dinner = Dinner.new(dinner_params)
 		@dinner.user_id = current_user.id
+		@dinner.currency = "USD"
 
 		if @dinner.save 
 			redirect_to @dinner, notice: 'Yay! Your dinner was successfully created'

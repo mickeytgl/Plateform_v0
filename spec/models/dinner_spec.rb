@@ -7,7 +7,7 @@ RSpec.describe Dinner, type: :model do
     :time => "2018-11-11 16:00:00",
     :description => "This is a test dinner",
     :cost => 5,
-    :user => test_user
+    :user => test_user,
   )}
 
   let(:test_user) { User.new }
@@ -16,7 +16,8 @@ RSpec.describe Dinner, type: :model do
     it { should validate_presence_of(:address) }
     it { should validate_presence_of(:description) }
     it { should validate_presence_of(:cost) }
-    it { should validate_presence_of(:time) }  
+    it { should validate_presence_of(:time) } 
+    it { should validate_presence_of(:currency) } 
 
     it "is valid with all the correct parameters" do 
       expect(dinner).to be_valid
@@ -27,6 +28,10 @@ RSpec.describe Dinner, type: :model do
       dinner.save
       expect(dinner.errors[:time].first).to eq("You have to set a time in the future!")
       expect(dinner).not_to be_valid
+    end
+
+    it "defaults to USD when no currency is provided" do 
+      expect(dinner.currency).to eq("USD")
     end
   end
 
