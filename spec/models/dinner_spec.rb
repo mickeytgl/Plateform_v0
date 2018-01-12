@@ -45,9 +45,7 @@ RSpec.describe Dinner, type: :model do
 
   describe 'Geocoder' do
     it 'should assign lat and long after validation' do 
-      subject.geocode
       subject.save 
-      expect(subject).to be_valid
       expect(subject.latitude).to be_between(40, 41)
       expect(subject.longitude.abs).to be_between(73, 75)
     end

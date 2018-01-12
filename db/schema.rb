@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20171120140523) do
     t.datetime "time"
     t.text "description"
     t.integer "cost"
-    t.integer "total_guests"
+    t.integer "guest"
     t.string "currency", default: "USD"
     t.json "images"
     t.bigint "user_id"

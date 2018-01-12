@@ -13,7 +13,7 @@ class DinnersController < ApplicationController
 	  	           Dinner.within_bounding_box(box)
 	  	         elsif params[:near]
 	  	           Dinner.near(params[:near])
-	  	         else 
+	  	         else  
 	  	           Dinner.all
 	  	         end
 
@@ -64,7 +64,7 @@ class DinnersController < ApplicationController
     
     def guest
     	guest = Guest.create(is_guest: true, dinner: @dinner, user: current_user)
-    	dinner.guest =- 1
+    	dinner.total_guests =- 1
     	if guest.valid?
     		flash[:success] = "You are now a guest of this dinner"
     		#redirect_to root_path
