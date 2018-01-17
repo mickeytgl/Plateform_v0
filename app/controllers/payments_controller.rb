@@ -19,7 +19,8 @@ class PaymentsController < ApplicationController
     :description => "Example charge",
     :source => token,
     )
-    redirect_to root_path
+
+
   end
 
   def destroy 

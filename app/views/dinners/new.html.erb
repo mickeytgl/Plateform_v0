@@ -23,6 +23,11 @@
 	</div>
 
 	<div class="form-group">
+		<%= f.label :guest %>
+		<%= f.number_field :guest, class: "form-control" %>
+	</div>
+
+	<div class="form-group">
 		<%= f.label :images %>
 		<%= f.file_field :images, multiple: true, class: "form-control-file" %>
 	</div>

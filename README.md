@@ -32,3 +32,23 @@ The intention is that people (this was originally concieved for uni-students, bu
 * Bootstrap
 
 Any suggestions, complaints, ideas, words of encouragement, pull requests, or comments let me know, I'll be glad to chat.
+
+
+
+**Payments to-do**
+
+1. If @dinner.guests > 0 "Join the party" button
+
+2. If @dinner.guests == 0 "No more places" message
+
+3. Redirect to payments if you click on "Join the party"
+
+4. The amount charged == @dinner.cost
+
+5. Allow users to set number of guests that he wants to make a reservation for. In this case, amount charged will be == @dinner.cost * (# of guests)
+
+6. Create a new Guest in the database with dinner == @dinner and user == current_user 
+
+7. Lower the @dinner.guest count by 1 (or more, if the user reserved for more than one person)
+
+8. Create a customer on Stripe so that payment information can be used to book future dinners

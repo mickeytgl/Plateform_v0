@@ -33,8 +33,12 @@
 	</p>
 
 	<div class="pull-right">
-		<%= link_to  new_payment_path do %>
-	    Join the party!
+		<% if @dinner.guest >= 0 %>
+				<%= link_to  new_payment_path do %>
+	  	  	Join the party!
+				<% end %>
+			<% else %>
+				<p>All seats taken!</p>
 		<% end %>
 	</div>
 

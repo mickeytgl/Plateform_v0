@@ -88,6 +88,6 @@ class DinnersController < ApplicationController
 		end
 
 		def dinner_params  
-			params.require(:dinner).permit(:place, :time, :description, :cost, :address, {images: []}, :category_id)
+			params.require(:dinner).permit(:place, :time, :description, :cost, :address, :guest, {images: []}, :category_id)
 		end
 end

@@ -4,7 +4,7 @@ class Dinner < ApplicationRecord
 	has_many :reviews, as: :reviewable
 	has_many :dinner_categories
 	has_many :categories, through: :dinner_categories
-  validates :address,:time, :description, :cost, :currency, presence: true
+  validates :guest, :address,:time, :description, :cost, :currency, presence: true
   validate :time_cannot_be_in_the_past
 
   geocoded_by :address
