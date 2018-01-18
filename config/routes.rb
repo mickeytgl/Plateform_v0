@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       post 'guest'
     end
     resources :reviews, module: :dinners 
+    resources :payments, controller: 'dinners/payments'
   end
 
   get 'users/profile/:id' => 'users#show'
@@ -22,8 +23,6 @@ Rails.application.routes.draw do
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
-
-  resources :payments
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root to: 'home#index'

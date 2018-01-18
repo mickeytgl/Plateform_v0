@@ -22,6 +22,8 @@ class DinnersController < ApplicationController
 
 	#GET /dinners/1
 	def show 
+		@dinner = Dinner.find(params[:id])
+
 	end
 
 	#GET /dinners/new

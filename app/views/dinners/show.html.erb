@@ -34,7 +34,7 @@
 
 	<div class="pull-right">
 		<% if @dinner.guest >= 0 %>
-				<%= link_to  new_payment_path do %>
+				<%= link_to  new_dinner_payment_path(@dinner) do %>
 	  	  	Join the party!
 				<% end %>
 			<% else %>

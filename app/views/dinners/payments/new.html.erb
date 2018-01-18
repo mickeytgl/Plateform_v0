@@ -1,7 +1,7 @@
 <h1>Hello</h1>
+<h2>You will be billed <%= @dinner.cost %> Euros for this.</h2>
 
-
-<%= form_with url: "/payments#create", id: "payment-form" do |form| %>
+<%= form_with(url: dinner_payments_path, id: "payment-form") do |form| %>
   <div class="form-row">
     <label for="card-element">
       Credit or debit card
