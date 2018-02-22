@@ -35,10 +35,10 @@
 	<div class="pull-right">
 		<% if @dinner.guest >= 0 %>
 				<%= link_to  new_dinner_payment_path(@dinner) do %>
-	  	  	Join the party!
+	  	  	<button type="button" class="btn btn-primary">Join the party!</button>
 				<% end %>
 			<% else %>
-				<p>All seats taken!</p>
+				<button type="button" class="btn btn-primary" disabled>All seats taken</button>
 		<% end %>
 	</div>
 

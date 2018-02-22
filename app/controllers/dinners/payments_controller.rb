@@ -23,6 +23,16 @@ class Dinners::PaymentsController < ApplicationController
     :source => token,
     )
 
+    new_guest = Guest.new(
+      :is_guest => true,
+      :dinner => @dinner,
+      :user => current_user
+    )
+
+    new_guest.save
+
+    @dinner.guest = @dinner.guest - 1
+
 
   end
 
