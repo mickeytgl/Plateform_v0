@@ -32,6 +32,10 @@
 	  <%= @dinner.cost %>
 	</p>
 
+	<p>
+	  <h5>Hurry! Only <%= @dinner.guest %> places left!</h5>
+	</p>
+
 	<div class="pull-right">
 		<% if @dinner.guest >= 0 %>
 				<%= link_to  new_dinner_payment_path(@dinner) do %>
