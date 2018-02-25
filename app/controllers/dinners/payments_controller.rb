@@ -35,14 +35,12 @@ class Dinners::PaymentsController < ApplicationController
         :currency => "eur",
         :description => "Example charge",
         :source => token,
-        :capture => false,
         )
   
       end
   
       if @guest.save 
         @dinner.update(:guest => @dinner.guest - 1)
-        charge.capture
         redirect_to @dinner, notice: "Bon Appetit! Votre reservation a été fait!"
       else
         redirect_to new_dinner_payment_path, alert: "Vous êtes déjà membre de ce dîner Deuxime"

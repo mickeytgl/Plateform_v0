@@ -8,7 +8,7 @@ class CreateDinners < ActiveRecord::Migration[5.1]
       t.text :description
       t.integer :cost
       t.integer :guest
-      t.string :currency, default: "USD"
+      t.string :currency, default: "eur"
       t.json :images
 	  t.references :user, foreign_key: true
 

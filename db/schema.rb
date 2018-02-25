@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20180110191708) do
     t.text "description"
     t.integer "cost"
     t.integer "guest"
-    t.string "currency", default: "USD"
+    t.string "currency", default: "eur"
     t.json "images"
     t.bigint "user_id"
     t.datetime "created_at", null: false
