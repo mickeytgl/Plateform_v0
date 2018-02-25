@@ -1,8 +1,34 @@
-.hello {
-  font-weight: 5000;
-  color: blue;
+.jumbotron {
+ background-image: url("hero.jpg");
+ background-size: cover;
+ height: 700px;
 }
 
-.card {
-  margin-left: 50px;
+.hello {
+  color: white;
+  font-weight: 500;
+  font-size: 150px;
+  text-align: center;
+}
+
+.lead {
+  color: white;
+  font-weight: 200;
+  font-size: 50px;
+  text-align: center;
+}
+
+.separation {
+  padding-left: 30px;
+}
+
+.headings {
+  color: hsl(0, 0%, 17%);
+  font-weight: 650;
+  font-size: 20px;
+}
+
+.text {
+  font-weight: 400;
+  color: hsl(0, 0%, 40%)
 }
