@@ -9,46 +9,27 @@ It's a meal-sharing web app that allows users to to publish dinners. When a user
 The intention is that people (this was originally concieved for uni-students, but whoever) can have low-cost meals. Both parties benefit either by making cooking feel more worth it, or by having a cheaper but reliable alternative than eating out. Also you'll enjoy (hopefully) of good company. Sounds simple enough, right? Yeah, not if you're building the app:
 
 **Summary of Features**
- * Authentication with Google/Facebook/Twittter's API (not available in production though)
- * Users can create dinners, select categories, set a price
- * Users can join other people's dinners (in progress)
+ * Authentication with Google/Facebook/Twittter's API. Multiple authentication providors can be linked to the same account, so you can sign in with Fb, link your Twitter and sign in with Twitter the next time you log in (not available in production though)
+ * Users can create dinners, select categories, set a price that they want to charge the guests that join their dinner
  * Search functionality for dinners
- * Users can upload their avatars and images to the dinners that they host
- * Geolocation and integration with Google Maps so that dinners search results as markers on the map
+ * Users can upload their avatars to their profile and images to the dinners that they host
+ * Geolocation and integration with Google Maps so that each time a user creates a new dinner, it's automatically geocoded and set as a marker on the map
  * Users as well as dinners can be reviewed through comments
  * Users as well as dinners can be reviewed through stars (Coming soon)
- * Once a user joins a dinner, he/she will be sent to a payment page for the amount that the host specified. (Coming soon)
+ * Once a user joins a dinner, he/she will be sent to a payment page for the amount that the host specified. 
  * Users will be able to send messages to other users (Coming soon)
+ * The user hosting the dinner will receive payments when other users make reservations for their dinner (Coming soon, meanwhile we'll keep all the money :grin:)
 
 **Some of the skills and tools this app has helped me practice**
-* Test Driven Development using RSpec
-* Dealing with Google Maps API (granted, I cheated a bit and used gmaps.js)
+* Dealing with Google Maps API (using gmaps.js)
 * Using Omniauth to deal with Facebook's, Twitter's and Google's API for authentication
 * Polymorphic associations for reviews (users and dinners)
 * JavaScript libraries such as Selectize.js, SweetAlert.js
 * Using Stripe's API to deal with payments
-* Action Cable for messaging between users
+* Transactions and how to make it so that if the payment doesn't come through, or the dinner guest is not saved, nothing gets recorded to the db
 * ActionMailer for mailing user's welcome message and confirming their e-mail
 * Bootstrap
+* Using seeds to set up initial data
+
 
 Any suggestions, complaints, ideas, words of encouragement, pull requests, or comments let me know, I'll be glad to chat.
-
-
-
-**Payments to-do**
-
-1. If @dinner.guests > 0 "Join the party" button
-
-2. If @dinner.guests == 0 "No more places" message
-
-3. Redirect to payments if you click on "Join the party"
-
-4. The amount charged == @dinner.cost
-
-5. Allow users to set number of guests that he wants to make a reservation for. In this case, amount charged will be == @dinner.cost * (# of guests)
-
-6. Create a new Guest in the database with dinner == @dinner and user == current_user 
-
-7. Lower the @dinner.guest count by 1 (or more, if the user reserved for more than one person)
-
-8. Create a customer on Stripe so that payment information can be used to book future dinners
