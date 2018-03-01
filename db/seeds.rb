@@ -81,19 +81,42 @@ users = User.create([
   }
 ])
 
+categories = Category.create([
+  {
+    :name => "Vegetarian"
+  },
+  {
+    :name => "Cheap"
+  },
+  {
+    :name => "Mexican"
+  },
+  {
+    :name => "Doggy friendly"
+  },
+  {
+    :name => "French"
+  },
+  {
+    :name => "German"
+  },
+  ])
+
+
 dinners = Dinner.create([
   {
     :address => "23 Avenue de Bruxelles, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 5,
     :user => User.where(name: "miguel").first,
     :guest => 10,
+    :categories => Category.where(:name => "Vegetarian").first
   },
   {
     :address => "17-1 Rue Jules Rame, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "I thought you might want to share some of my dog treats. I'll give you your money back if you throw me the ball",
     :cost => 10,
     :user => User.where(name: "maddie").first,
     :guest => 2,
@@ -101,7 +124,7 @@ dinners = Dinner.create([
   {
     :address => "36 Rue de Tilleuls, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Not in the mood for something fancy. I've just got cereal",
     :cost => 7,
     :user => User.where(name: "eugenio").first,
     :guest => 5,
@@ -109,7 +132,7 @@ dinners = Dinner.create([
   {
     :address => "Avenue d'Edimbourg, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "I made crepes for everybody, I also have baguettes and cheese if you want! Vive la France!",
     :cost => 15,
     :user => User.where(name: "aurelie").first,
     :guest => 7,
@@ -117,7 +140,7 @@ dinners = Dinner.create([
   {
     :address => "Rue Bertauld, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "German food, and beer, SO MUCH BEER",
     :cost => 10,
     :user => User.where(name: "kira").first,
     :guest => 6,
@@ -125,7 +148,7 @@ dinners = Dinner.create([
   {
     :address => "Rue Rene Perrotte, Caen, France",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 3,
     :user => User.where(name: "aurelie").first,
     :guest => 4,
@@ -133,7 +156,7 @@ dinners = Dinner.create([
   {
     :address => "45 Avenue du Six Juin, 14000 Caen, Frankreich",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 4,
     :user => User.where(name: "lisa").first,
     :guest => 100,
@@ -141,7 +164,7 @@ dinners = Dinner.create([
   {
     :address => "29 Avenue Capitaine Georges Guynemer, 14000 Caen, Frankreich",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 5,
     :user => User.where(name: "torben").first,
     :guest => 4,
@@ -149,9 +172,10 @@ dinners = Dinner.create([
   {
     :address => "2 Avenue Capitaine Georges Guynemer, 14000 Caen, Frankreich",
     :time => "2020-07-07 00:00:00",
-    :description => "descripton",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 7,
     :user => User.where(name: "gustavo").first,
     :guest => 5,
   }
 ])
+

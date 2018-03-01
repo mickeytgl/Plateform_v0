@@ -2,6 +2,7 @@ class Dinners::PaymentsController < ApplicationController
       rescue_from ActiveRecord::RecordInvalid do |exception|
         redirect_to new_dinner_payment_path, alert: "You're already have a reservation"
       end
+      before_action :authenticate_user!
 
   def index 
   end
