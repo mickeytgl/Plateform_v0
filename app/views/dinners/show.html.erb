@@ -3,15 +3,13 @@
 		<div class="col-md-4">
 		<%= link_to dinner_path(@dinner.user) do %>
 			<%= image_tag @dinner.user.avatar.url(:medium), class: "float rounded-circle"%>
-			<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
+			<p><h5>Brought to you by: <%= @dinner.user.name.capitalize %></h5></p>
 		</div>
 		<% end %>
 
 
 
 	<div class="col-md-8">
-		
-
 	<p>
 	  <h5>Address:</h5>
 	  <%= @dinner.address %>
@@ -55,6 +53,17 @@
 	<%= link_to 'Edit', edit_dinner_path(@dinner) %> |
 	<%= link_to 'Back', dinners_path %>
 
-
+	<br>
 	<%= image_tag(@dinner.images[0].url(:showcase)) if @dinner.images? %>
+	<br>
+	<div>
+		<% if Guest.where(:dinner_id => @dinner.id).any?  %>
+			<h2>People who already have a reservation:</h2>
+				<% Guest.where(:dinner_id => @dinner.id).each do |f| %>
+					<li><%= f.user.name.capitalize %></li> 
+				<% end %>
+		<% end %>
+	</div>
+
+
 </div>

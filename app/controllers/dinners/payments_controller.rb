@@ -1,6 +1,6 @@
 class Dinners::PaymentsController < ApplicationController
       rescue_from ActiveRecord::RecordInvalid do |exception|
-        redirect_to new_dinner_payment_path, alert: "Vous êtes déjà membre de ce dîner"
+        redirect_to new_dinner_payment_path, alert: "You're already have a reservation"
       end
 
   def index 

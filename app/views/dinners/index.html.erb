@@ -9,6 +9,9 @@
 				<%= image_tag dinner.user.avatar.url(:small), class: "float rounded-circle" %>
 			</div>
 			<div class="col-4">
+				<strong>Host:</strong>
+					<p><%= dinner.user.name.capitalize %></p>
+					
 				<strong>When:</strong> 
 					<% if dinner.time == Date.today %>
 						<p>Today at <%= dinner.time.hour %></p>
@@ -17,6 +20,7 @@
 					<% else %>
 						<p><%= dinner.time.strftime('%B') %> <%= dinner.time.day %> at <%= dinner.time.hour %> hours</p>
 					<% end %>
+					
 				<p><strong>Where: </strong><%= dinner.address %></p>
 			</div>
 			<% if current_user == dinner.user %>
