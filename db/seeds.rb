@@ -111,7 +111,6 @@ dinners = Dinner.create([
     :cost => 5,
     :user => User.where(name: "miguel").first,
     :guest => 10,
-    :categories => Category.where(:name => "Vegetarian").first
   },
   {
     :address => "17-1 Rue Jules Rame, Caen, France",
