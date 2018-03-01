@@ -17,7 +17,7 @@ class DinnersController < ApplicationController
 	  	           Dinner.all
 	  	         end
 
-	  @dinners = Dinner.page(params[:page]).per(5)
+	  @dinners = Dinner.page(params[:page]).per(3)
 	end 
 
 	#GET /dinners/1
