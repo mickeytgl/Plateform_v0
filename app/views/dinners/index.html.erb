@@ -10,7 +10,7 @@
 			</div>
 			<div class="col-4">
 				<strong>Host:</strong>
-					<p><%= dinner.user.name.capitalize %></p>
+					<p><%= dinner.user.email %></p>
 					
 				<strong>When:</strong> 
 					<% if dinner.time == Date.today %>
@@ -40,7 +40,7 @@
 	</div>
 	
 	<div class="col col-6">
-		<%= tag.div nil, id: 'map', data: { dinners: @dinners.to_json, l: params[:l] } %>
+		<%= tag.div nil, id: 'map', data: { addresses: @dinners.to_json, l: params[:l] } %>
 		<%= link_to "Redo search in this area", "#", id: "redo-search" %>
 	</div>
 </div>

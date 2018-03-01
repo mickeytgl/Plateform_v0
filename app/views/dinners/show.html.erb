@@ -3,7 +3,7 @@
 		<div class="col-md-4">
 		<%= link_to dinner_path(@dinner.user) do %>
 			<%= image_tag @dinner.user.avatar.url(:medium), class: "float rounded-circle"%>
-			<p><h5>Brought to you by: <%= @dinner.user.name.capitalize %></h5></p>
+			<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
 		</div>
 		<% end %>
 
