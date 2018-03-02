@@ -3,7 +3,12 @@
 		<div class="col-md-4">
 		<%= link_to dinner_path(@dinner.user) do %>
 			<%= image_tag @dinner.user.avatar.url(:medium), class: "float rounded-circle"%>
-			<p><h5>Brought to you by: <%= @dinner.user.email %></h5></p>
+			<p><h5>Brought to you by:</h5>
+				<% if @dinner.user.name? %>
+					<h5><%= @dinner.user.name.capitalize %></h5></p>
+				<% else %>
+					<h5><%= @dinner.user.email %></h5></p>
+				<% end %>
 		</div>
 		<% end %>
 
@@ -60,7 +65,11 @@
 		<% if Guest.where(:dinner_id => @dinner.id).any?  %>
 			<h2>People who already have a reservation:</h2>
 				<% Guest.where(:dinner_id => @dinner.id).each do |f| %>
-					<li><%= f.user.name.capitalize %></li> 
+					<% if f.user.name? %>
+						<li><%= f.user.name.capitalize %></li> 
+					<% else %>
+						<li><%= f.user.email %></li>
+						<% end %>
 				<% end %>
 		<% end %>
 	</div>

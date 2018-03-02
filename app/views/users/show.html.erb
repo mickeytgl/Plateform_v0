@@ -1,1 +1,7 @@
 <h1>Your Profile!</h1>
+
+  <% if @user.name? %>
+    <strong>Name: </strong><h5><%= @user.name.capitalize %></h5>
+  <% else %>
+    <strong>Email:</strong><h5><%= @user.email %></h5>
+  <% end %>

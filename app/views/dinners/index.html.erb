@@ -10,7 +10,11 @@
 			</div>
 			<div class="col-4">
 				<strong>Host:</strong>
+					<% if dinner.user.name? %>
+					<p><%= dinner.user.name.capitalize %></p>
+				<% else %>
 					<p><%= dinner.user.email %></p>
+				<% end %>
 					
 				<strong>When:</strong> 
 					<% if dinner.time == Date.today %>
