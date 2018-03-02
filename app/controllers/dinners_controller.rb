@@ -12,12 +12,12 @@ class DinnersController < ApplicationController
 	  	           box      = Geocoder::Calculations.bounding_box(center, distance)
 	  	           Dinner.within_bounding_box(box)
 	  	         elsif params[:near]
-	  	           Dinner.near(params[:near])
+	  	           Dinner.near(params[:near], 10)
 	  	         else  
 	  	           Dinner.all
 	  	         end
 
-	  @dinners = Dinner.page(params[:page]).per(3)
+	  @dinners = @dinners.page(params[:page]).per(400)
 	end 
 
 	#GET /dinners/1

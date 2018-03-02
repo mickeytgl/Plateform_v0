@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   has_many :services, dependent: :destroy
   has_many :dinners, dependent: :destroy
-  has_many :reviews, as: :reviewable
+  has_many :reviews, as: :reviewable, dependent: :destroy
   
 
   private 

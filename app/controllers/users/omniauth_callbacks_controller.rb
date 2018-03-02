@@ -70,7 +70,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def create_user
     User.create(
       email: auth.info.email,
-      #name: auth.info.name,
+      name: auth.info.name,
       password: Devise.friendly_token[0,20]
     )
   end

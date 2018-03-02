@@ -35,12 +35,12 @@
 	  <%= @dinner.cost %>
 	</p>
 
+
+	<div class="pull-right">
+		<% if @dinner.guest > 0 %>
 	<p>
 	  <h5>Hurry! Only <%= @dinner.guest %> places left!</h5>
 	</p>
-
-	<div class="pull-right">
-		<% if @dinner.guest >= 0 %>
 				<%= link_to  new_dinner_payment_path(@dinner) do %>
 	  	  	<button type="button" class="btn btn-primary">Join the party!</button>
 				<% end %>

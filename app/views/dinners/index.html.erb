@@ -29,14 +29,15 @@
 			</div>
 			<% if current_user == dinner.user %>
 			<div class="col-2">
+				<p>You're hosting this dinner</p>
 				<button type="button" class="btn btn-outline-primary"><%= link_to "Edit", edit_dinner_path(dinner) %></button>
 			</div>
 			<% else %>
 			<div class="col-2">	
 				<p><%= dinner.cost %> €</p>	
 				<button type="button" class="btn btn-outline-primary"><%= link_to "Join the party!", dinner_path(dinner.id)  %></button>
-				<% end %>
 			</div>
+			<% end %>
 		</div>
 		<% end %>
 		<%= paginate @dinners %>

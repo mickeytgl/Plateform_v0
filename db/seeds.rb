@@ -21,7 +21,7 @@ users = User.create([
   },
   {
   :name => "maddie",
-  :email => "maddie@example",
+  :email => "maddie@example.com",
   :password => "password",
   :avatar => get_file_name("mila"),
   },
@@ -149,7 +149,7 @@ dinners = Dinner.create([
     :time => "2020-07-07 00:00:00",
     :description => "Tacos for everybody! We have pastor, bistec and chorizo",
     :cost => 3,
-    :user => User.where(name: "aurelie").first,
+    :user => User.where(name: "luis").first,
     :guest => 4,
   },
   {
@@ -163,7 +163,7 @@ dinners = Dinner.create([
   {
     :address => "29 Avenue Capitaine Georges Guynemer, 14000 Caen, Frankreich",
     :time => "2020-07-07 00:00:00",
-    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
+    :description => "German food, and beer, SO MUCH BEER",
     :cost => 5,
     :user => User.where(name: "torben").first,
     :guest => 4,
@@ -175,6 +175,38 @@ dinners = Dinner.create([
     :cost => 7,
     :user => User.where(name: "gustavo").first,
     :guest => 5,
-  }
+  },
+  {
+    :address => "Esplanade Général Eisenhower, 14050 Caen, Frankreich",
+    :time => "2020-07-07 00:00:00",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
+    :cost => 5,
+    :user => User.where(name: "eugenio").first,
+    :guest => 4,
+  },
+  {
+    :address => "135 Boulevard Maréchal Leclerc, 14000 Caen, Frankreich",
+    :time => "2020-07-07 00:00:00",
+    :description => "I made crepes for everybody, I also have baguettes and cheese if you want! Vive la France!",
+    :cost => 5,
+    :user => User.where(name: "karina").first,
+    :guest => 7,
+  },
+  {
+    :address => "36 Rue de l'Église de Vaucelles, 14000 Caen, Frankreich",
+    :time => "2020-07-07 00:00:00",
+    :description => "Tacos for everybody! We have pastor, bistec and chorizo",
+    :cost => 5,
+    :user => User.where(name: "felix").first,
+    :guest => 10,
+  },
+  {
+    :address => "88 Rue Saint-Martin, 14000 Caen, Frankreich",
+    :time => "2020-07-07 00:00:00",
+    :description => "I thought you might want to share some of my dog treats. I'll give you your money back if you throw me the ball",
+    :cost => 1,
+    :user => User.where(name: "maddie").first,
+    :guest => 1,
+  },
 ])
 
