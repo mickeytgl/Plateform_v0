@@ -1,0 +1,42 @@
+<%= tag.div id:"dinners-list", data: { addresses: @dinners.to_json, l: params[:l] } do%>
+  <% @dinners.each do |dinner| %> 
+    <div class="row listing">
+        <div class="col-2 text-center">
+        <%= image_tag dinner.user.avatar.url(:small), class: "float rounded-circle" %>
+      </div>
+      <div class="col-4">
+        <strong>Host:</strong>
+          <% if dinner.user.name? %>
+            <p><%= dinner.user.name.capitalize %></p>
+          <% else %>
+            <p><%= dinner.user.email %></p>
+          <% end %>
+          
+        <strong>When:</strong> 
+          <% if dinner.time == Date.today %>
+            <p>Today at <%= dinner.time.hour %></p>
+          <% elsif dinner.time == Date.tomorrow %>
+            <p>Tomorrow at <%= dinner.time.hour %></p>
+          <% else %>
+            <p><%= dinner.time.strftime('%B') %> <%= dinner.time.day %> at <%= dinner.time    .hour %> hours</p>
+          <% end %>
+          
+        <p><strong>Where: </strong><%= dinner.address %></p>
+      </div>
+
+      <% if current_user == dinner.user %>
+        <div class="col-2">
+          <p>You're hosting this dinner</p>
+          <button type="button" class="btn btn-outline-primary"><%= link_to "Edit",     edit_dinner_path(dinner) %></button>
+        </div>
+      <% else %>
+        <div class="col-2"> 
+          <p><%= dinner.cost %> €</p> 
+          <button type="button" class="btn btn-outline-primary"><%= link_to "Join the party!    ", dinner_path(dinner.id)  %></button>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <%= paginate @dinners, remote: true %>
+<% end %>
