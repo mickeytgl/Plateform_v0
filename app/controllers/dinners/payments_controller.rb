@@ -42,6 +42,7 @@ class Dinners::PaymentsController < ApplicationController
   
       if @guest.save 
         @dinner.update(:guest => @dinner.guest - 1)
+        WelcomeEmailJob.perform_later(current_user.id)
         redirect_to @dinner, notice: "Bon Appetit! Your reservation has been made!"
       else
         redirect_to new_dinner_payment_path, alert: "You already have a reservation"
