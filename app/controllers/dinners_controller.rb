@@ -6,18 +6,37 @@ class DinnersController < ApplicationController
 	#GET /dinners 
 	def index 
 	  @dinners = if params[:l]
-	  	           sw_lat, sw_lng, ne_lat, ne_lng = params[:l].split(",")
-	  	           center   = Geocoder::Calculations.geographic_center([[sw_lat, sw_lng], [ne_lat, ne_lng]])
-	  	           distance = Geocoder::Calculations.distance_between(center, [sw_lat, sw_lng])
-	  	           box      = Geocoder::Calculations.bounding_box(center, distance)
-	  	           Dinner.within_bounding_box(box)
-	  	         elsif params[:near]
-	  	           Dinner.near(params[:near], 10)
-	  	         else  
-	  	           Dinner.all
-	  	         end
-
-	  @dinners = @dinners.page(params[:page]).per(4)
+	  	          sw_lat, sw_lng, ne_lat, ne_lng = params[:l].split(",")
+	  	          Dinner.search("*", page: params[:page], per_page: 5, where: {
+	  	           	location: {
+	  	           		top_left: {
+	  	           			lat: ne_lat,
+	  	           			lon: sw_lng
+	  	           		},
+	  	           		bottom_right: {
+	  	           			lat: sw_lat,
+	  	           			lon: ne_lng
+	  	           		}
+	  	           	}
+	  	          })
+	  	        elsif params[:near]
+	  	        	#Dinner.near(params[:near]).page([params[:page]]).per(5)
+	  	          
+	  	          location = Geocoder.search(params[:near]).first
+	  	          Dinner.search "*", page: params[:page], per_page: 5,
+	  	          boost_by_distance: {location: {origin: {lat: location.latitude, lon: location.longitude}}},
+	  	          where: {
+	  	          	location: {
+	  	          		near: {
+	  	          			lat: location.latitude,
+	  	          			lon: location.longitude
+	  	          		},
+	  	          		within: "10mi"
+	  	          	}
+	  	          }
+	  	        else
+	  	        	Dinner.all.page(params[:page]).per(5)
+	  	        end	  
 	end 
 
 	#GET /dinners/1
