@@ -50,6 +50,7 @@ gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
 gem 'webpacker', '~> 1.1'
 gem 'sidekiq', '~> 5.0'
+gem 'sinatra', github: 'sinatra/sinatra'
 gem 'foreman', '~> 0.84.0'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 #OmniAuth Logins 

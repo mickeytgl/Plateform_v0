@@ -1,6 +1,7 @@
-require 'sidekiq/web'
-
 Rails.application.routes.draw do
+
+  require 'sidekiq/web'
+
   resources :dinners do 
     resources :reviews, module: :dinners 
     resources :payments, controller: 'dinners/payments'
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
   resources :announcements, only: [:index]
-  authenticate :user, lambda { |u| u.admin? } do
+  #authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
-  end
+  #end
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
   root to: 'home#index'

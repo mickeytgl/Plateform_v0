@@ -10,10 +10,14 @@ class Dinner < ApplicationRecord
   geocoded_by :address
   after_validation :geocode 
 
-  
+  searchkick locations: [:location]
 
   def time_cannot_be_in_the_past
   	errors.add(:time, "You have to set a time in the future!") if 
       !time.blank? and time < Time.zone.now
+  end
+
+  def search_data
+    attributes.merge location: { lat: latitude, lon: longitude }
   end
 end 

@@ -5,6 +5,18 @@ GIT
   specs:
     devise-bootstrapped (0.2.0)
 
+GIT
+  remote: https://github.com/sinatra/sinatra.git
+  revision: 44660b99a010c3b70d237bbd0dedb95cb739089d
+  specs:
+    rack-protection (2.0.1)
+      rack
+    sinatra (2.0.1)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.1)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -168,6 +180,7 @@ GEM
     multi_json (1.12.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    mustermann (1.0.2)
     nio4r (2.1.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
@@ -200,8 +213,6 @@ GEM
     public_suffix (2.0.5)
     puma (3.9.1)
     rack (2.0.3)
-    rack-protection (2.0.0)
-      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.1.2)
@@ -366,6 +377,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers (~> 3.1)
   sidekiq (~> 5.0)
+  sinatra!
   spring
   spring-watcher-listen (~> 2.0.0)
   stripe
