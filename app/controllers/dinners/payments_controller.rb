@@ -42,7 +42,7 @@ class Dinners::PaymentsController < ApplicationController
   
       if @guest.save 
         @dinner.update(:guest => @dinner.guest - 1)
-        WelcomeEmailJob.perform_async("07/07/1993", "23/03/2018")
+        PaymentNotificationJob.perform_later("07/07/1993", "23/03/2018")
         redirect_to @dinner, notice: "Bon Appetit! Your reservation has been made! And background worker successful"
       else
         redirect_to new_dinner_payment_path, alert: "You already have a reservation"

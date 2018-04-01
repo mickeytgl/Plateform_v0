@@ -1,4 +1,4 @@
-#class WelcomeEmailJob < ApplicationJob
+#class PaymentNotificationJob < ApplicationJob
 #  queue_as :default
 #  def perform(user_id)
 #    user = User.find(user_id)
@@ -6,7 +6,7 @@
 #  end
 #end
 
-class WelcomeEmailJob 
+class PaymentNotificationJob < ApplicationJob
   include Sidekiq::Worker
   sidekiq_options retry: false
 
