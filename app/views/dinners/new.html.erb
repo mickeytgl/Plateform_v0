@@ -1,7 +1,8 @@
-<h2 class="text-center">Create a New Dinner!</h2>
 
 <div class="container">
-<%= form_with(model: @dinner, local: true) do |f| %>
+	<h2 class="text-center">Create a New Dinner!</h2>
+	
+	<%= form_with(model: @dinner, local: true) do |f| %>
 	<div class="form-group">
 		<%= f.label :address %>
 		<%= f.text_field :address, class: "form-control" %>

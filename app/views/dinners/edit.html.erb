@@ -1,35 +1,38 @@
-<h2>Edit your Dinner!</h2>
 
-<%= form_with(model: @dinner, local: true) do |form| %>
-	<div class="form-group">
-		<%= form.label :address %>
-		<%= form.text_field :address %>
-	</div>
-
-	<div class="form-group">
-		<%= form.label :time %>
-		<%= form.datetime_select :time %>
-	</div>
-
-	<div class="form-group">
-		<%= form.label :description %>
-		<%= form.text_area :description %>
-	</div>
-
-	<div class="form-group">
-		<%= form.label :cost %>
-		<%= form.number_field :cost %>
-	</div>
-
-	<div class="form-group">
-		<%= form.label :images %>
-		<%= form.file_field :images, multiple: true %>
-	</div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<div class="container">
+	<h2 class="text-center">Edit your Dinner!</h2>
+	
+	<%= form_with(model: @dinner, local: true) do |form| %>
+		<div class="form-group">
+			<%= form.label :address %>
+			<%= form.text_field :address, class: "form-control" %>
+		</div>
+	
+		<div class="form-group">
+			<%= form.label :time %>
+			<%= form.datetime_select :time, class: "form-control" %>
+		</div>
+	
+		<div class="form-group">
+			<%= form.label :description %>
+			<%= form.text_area :description, class: "form-control" %>
+		</div>
+	
+		<div class="form-group">
+			<%= form.label :cost %>
+			<%= form.number_field :cost, class: "form-control" %>
+		</div>
+	
+		<div class="form-group">
+			<%= form.label :images %>
+			<%= form.file_field :images, multiple: true, class: "form-control" %>
+		</div>
+	
+	  <div class="actions">
+	    <%= form.submit %>
+	  </div>
+	<% end %>
+</div>
 
 
 
