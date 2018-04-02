@@ -4,7 +4,7 @@
 
 <%= csrf_meta_tags %>
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBpucAVkBL9g3iZpzfCb3VkJzSh2vXIdck&callback=initMap", "https://js.stripe.com/v3/", "application", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBpucAVkBL9g3iZpzfCb3VkJzSh2vXIdck&libraries=places", "https://js.stripe.com/v3/", "application", 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
 
 <%= tag :meta, name: 'stripe-public-key', content: Rails.application.secrets.stripe_public_key %>

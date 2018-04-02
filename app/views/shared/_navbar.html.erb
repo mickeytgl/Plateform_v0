@@ -19,7 +19,7 @@
 
     <!-- Search box -->
       <%= form_with(url: dinners_path, class: "form-inline my-2 my-lg-0 mr-auto", local: true, method: :get) do |f| %>
-      <%= f.text_field :near, class: "form-control mr-sm-2", placeholder: "Search" %>
+      <%= f.text_field :near, class: "form-control mr-sm-2", placeholder: "Search", id: "autocomplete" %>
       <%= f.submit "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
       <% end %>
 
