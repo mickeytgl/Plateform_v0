@@ -20,9 +20,10 @@ class DinnersController < ApplicationController
 	  	           	}
 	  	          })
 	  	        elsif params[:near]
-	  	        	#Dinner.near(params[:near]).page([params[:page]]).per(5)
-	  	          
 	  	          location = Geocoder.search(params[:near]).first
+
+	  	          if location.present?
+
 	  	          Dinner.search "*", page: params[:page], per_page: 5,
 	  	          boost_by_distance: {location: {origin: {lat: location.latitude, lon: location.longitude}}},
 	  	          where: {
@@ -34,6 +35,9 @@ class DinnersController < ApplicationController
 	  	          		within: "10mi"
 	  	          	}
 	  	          }
+	  	        	else
+	  	        		Dinner.all.page(params[:page]).per(5) 
+	  	        	end
 	  	        else
 	  	        	Dinner.all.page(params[:page]).per(5)
 	  	        end	  
