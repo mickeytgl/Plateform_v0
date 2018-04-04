@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20180110191708) do
     t.boolean "is_guest"
     t.bigint "user_id"
     t.bigint "dinner_id"
+    t.string "card_type"
+    t.string "card_last4"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dinner_id"], name: "index_guests_on_dinner_id"
@@ -116,6 +121,11 @@ ActiveRecord::Schema.define(version: 20180110191708) do
     t.datetime "announcements_last_read_at"
     t.boolean "admin", default: false
     t.string "avatar"
+    t.string "payment_provider", default: "Stripe"
+    t.string "card_brand"
+    t.string "card_last4"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
