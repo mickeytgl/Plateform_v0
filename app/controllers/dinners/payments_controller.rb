@@ -4,12 +4,6 @@ class Dinners::PaymentsController < ApplicationController
       end
       before_action :authenticate_user!
 
-  def index 
-  end
-  def show
-  
-  end
-
   def new
     @dinner = Dinner.find(params[:dinner_id])
     @payment = Payment.new
