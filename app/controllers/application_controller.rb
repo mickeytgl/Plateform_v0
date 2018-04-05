@@ -18,7 +18,7 @@ protected
   end
 
   def after_sign_in_path_for(resource)
-    payment_source_user_path(current_user.id)
+    new_payment_source_user_path(current_user.id)
   end
   
 

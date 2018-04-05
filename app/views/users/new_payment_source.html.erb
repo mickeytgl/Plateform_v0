@@ -1,0 +1,22 @@
+<h1>Hello</h1>
+
+<br>
+<h1 class="text-center">Last steps</h1>
+<div class="container">
+  
+  <%= form_with(url: payment_source_user_path, id: "payment-form") do |form| %>
+    <div class="form-row">
+      <label for="card-element">
+        Credit or debit card
+      </label>
+      <div id="card-element" class="form-control">
+        <!-- a Stripe Element will be inserted here. -->
+      </div>
+  
+      <!-- Used to display Element errors -->
+      <div id="card-errors" role="alert"></div>
+    </div>
+  
+    <button class="btn btn-primary">Submit Payment</button>
+  <% end %>
+</div>
