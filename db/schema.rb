@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110191708) do
+ActiveRecord::Schema.define(version: 20180405182044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,11 @@ ActiveRecord::Schema.define(version: 20180110191708) do
     t.index ["user_id"], name: "index_dinners_on_user_id"
   end
 
+  create_table "dummies", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "guests", force: :cascade do |t|
     t.boolean "is_guest"
     t.bigint "user_id"
@@ -63,11 +68,20 @@ ActiveRecord::Schema.define(version: 20180110191708) do
     t.string "card_last4"
     t.string "card_exp_month"
     t.string "card_exp_year"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["dinner_id"], name: "index_guests_on_dinner_id"
     t.index ["user_id"], name: "index_guests_on_user_id"
+  end
+
+  create_table "payment_sources", force: :cascade do |t|
+    t.string "payment_providor", default: "Stripe"
+    t.string "card_exp_month"
+    t.string "card_exp_year"
+    t.string "card_last4"
+    t.string "card_brand"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_payment_sources_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -138,6 +152,7 @@ ActiveRecord::Schema.define(version: 20180110191708) do
   add_foreign_key "dinners", "users"
   add_foreign_key "guests", "dinners"
   add_foreign_key "guests", "users"
+  add_foreign_key "payment_sources", "users"
   add_foreign_key "payments", "dinners"
   add_foreign_key "payments", "users"
   add_foreign_key "services", "users"

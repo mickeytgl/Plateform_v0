@@ -4,6 +4,9 @@ class UsersController < ApplicationController
   def show
   end
 
+  def payment_source
+  end
+
   private 
 
     def set_user 
