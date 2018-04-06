@@ -16,11 +16,11 @@ class UsersController < ApplicationController
     })
 
     payment = PaymentSource.create(
-      user: current_user,
-      card_last4: params[:card_last4],
+      user:           current_user,
+      card_last4:     params[:card_last4],
       card_exp_month: params[:card_exp_month],
-      card_exp_year: params[:card_exp_year],
-      card_brand: params[:card_brand]
+      card_exp_year:  params[:card_exp_year],
+      card_brand:     params[:card_brand]
     )
 
     redirect_to root_path, notice: "Hurray, your debit card has been saved"
