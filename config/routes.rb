@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   require 'sidekiq/web'
 
-  resources :dinners do 
-    resources :reviews, module: :dinners 
+  resources :dinners do
+    resources :reviews, module: :dinners
     resources :payments, only: [:new, :create, :destroy], controller: 'dinners/payments'
   end
 
@@ -26,10 +26,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources  :users, :only => [:show] do
-    member do
-      get :new_payment_source
-      post :payment_source
-    end
+  resources  :users do
+    resources :payment_sources, only: [:index, :new, :create], controller: 'users/payment_sources'
   end
 end
