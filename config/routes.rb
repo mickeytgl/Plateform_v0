@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dinners do
     resources :reviews, module: :dinners
-    resources :payments, only: [:new, :create, :destroy], controller: 'dinners/payments'
+    resources :reservations, only: [:new, :create, :destroy], controller: 'dinners/reservations'
   end
 
   get 'users/profile/:id' => 'users#show'
