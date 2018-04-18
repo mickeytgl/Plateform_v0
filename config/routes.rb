@@ -27,6 +27,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources  :users do
-    resources :payment_sources, only: [:index, :new, :create], controller: 'users/payment_sources'
+    resources :payment_sources, only: [:index, :new, :create, :destroy], controller: 'users/payment_sources'
   end
 end
