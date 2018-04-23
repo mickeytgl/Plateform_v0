@@ -27,7 +27,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
-  gem 'rails-controller-testing'  
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -48,12 +48,12 @@ gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootst
 gem 'jquery-rails', '~> 4.3.1'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
-gem 'webpacker', '~> 1.1'
+gem 'webpacker', '~> 3.4', '>= 3.4.3'
 gem 'sidekiq', '~> 5.0'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'foreman', '~> 0.84.0'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
-#OmniAuth Logins 
+#OmniAuth Logins
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'twitter'
