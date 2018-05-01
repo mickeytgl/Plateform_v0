@@ -1,0 +1,7 @@
+test1:
+  address: New York, NY
+  time: 2018-11-11 16:00:00
+  description: This is a test dinner
+  cost: 5
+  currency: eur
+  guest: 10
