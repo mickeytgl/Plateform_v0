@@ -7,6 +7,8 @@ class Dinner < ApplicationRecord
   validates :guest, :address,:time, :description, :cost, :currency, presence: true
   validate :time_cannot_be_in_the_past
 
+  scope :upcoming, -> { where( "time < ?", Time.zone.now )}
+
   geocoded_by :address
   after_validation :geocode 
 
