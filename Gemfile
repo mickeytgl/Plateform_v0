@@ -49,7 +49,7 @@ gem 'devise-bootstrapped', github: 'excid3/devise-bootstrapped', branch: 'bootst
 gem 'jquery-rails', '~> 4.3.1'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
-gem 'webpacker', '~> 3.4', '>= 3.4.3'
+gem 'webpacker', '~> 3.5'
 gem 'sidekiq', '~> 5.0'
 gem 'sinatra', github: 'sinatra/sinatra'
 gem 'foreman', '~> 0.84.0'
